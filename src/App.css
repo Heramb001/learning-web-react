@@ -1,8 +1,17 @@
-.App {
-  text-align: center;
+
+/* * {
+  box-sizing: border-box;
+} */
+
+#dmnEditor {
+  height: 88.5vh;
 }
 
-.App-logo {
+/* .App {
+  text-align: center;
+} */
+
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +44,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
