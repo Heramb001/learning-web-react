@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 import InputForm from './InputForm';
-
 import NavbarComponent from '../NavbarComponent';
 
 const useStyles = makeStyles((theme) => ({

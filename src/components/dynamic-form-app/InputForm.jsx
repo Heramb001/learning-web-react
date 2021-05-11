@@ -14,9 +14,9 @@ import Grid from '@material-ui/core/Grid';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import Box from '@material-ui/core/Box'
 import { makeStyles } from '@material-ui/core/styles';
+import {amber} from '@material-ui/core/colors'
 
 import CustomForm from './CustomFormComponent';
-
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -26,15 +26,19 @@ const useStyles = makeStyles((theme) => ({
     },
     group: {
         marginLeft: "45%",
-    }
+    },
+
+    btnPreview: {
+        color: theme.palette.getContrastText(amber[500]),
+        backgroundColor: amber[500],
+        '&:hover': {
+          backgroundColor: amber[700],
+        },
+      },
   }));
 
-function InputForm(){
-
+function InputForm({ match }){
     const classes = useStyles();
-    // const [title, settitle] = useState('');
-    // const [fieldType, setfieldType] = useState('TextField')
-    // const [formDetails, setformDetails]
     const [formDetails, setformDetails] = useState({'title': '', 'fields':[
         {'question': '', 'field': 'TextField', 'option': []},
     ]});
@@ -52,6 +56,12 @@ function InputForm(){
     }
 
     const handleSubmit = (e) => {
+        e.preventDefault();
+        // Call backend, Store the form and return a notification saying form saved or error saving form.
+        console.log("Form Details : ", formDetails);
+    }
+
+    const handlePreview = (e) => {
         e.preventDefault();
         console.log("Form Details : ", formDetails);
     }
@@ -138,12 +148,22 @@ function InputForm(){
                         </div>
                     </Box>
                 ))}
-                <Button
-                    variant="contained"
-                    color="primary"
-                    type="submit"
-                    onClick={(e) => handleSubmit(e)}
-                >Create Form</Button>               
+                <div>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                        onClick={(e) => handleSubmit(e)}
+                    >Create Form</Button> 
+                    &nbsp;&nbsp;
+                    {/* <Link to={`${url}/preview`}> Preview Button */}
+                        <Button
+                            variant="contained"
+                            className={classes.btnPreview}
+                            onClick={(e) => handlePreview(e)}
+                        >Preview Form</Button>
+                    {/* </Link> */}
+                </div>               
             </form>
         </div>
     );

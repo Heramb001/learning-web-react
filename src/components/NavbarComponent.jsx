@@ -53,6 +53,7 @@ const NavbarComponent = (props) => {
             <Link to="/"><ListItem button><ListItemText primary="Home"/></ListItem></Link>
             <Divider />
             <Link to="/dynamic-form"><ListItem button><ListItemText primary="Dynamic Form"/></ListItem></Link>
+            <Link to="/saved-form"><ListItem button><ListItemText primary="Saved Form"/></ListItem></Link>
             <ListItem button onClick={handleClick}> 
                 <ListItemText primary="BPM Editors" />
                 {open ? <ExpandLess /> : <ExpandMore />}
