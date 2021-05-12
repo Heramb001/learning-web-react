@@ -1,13 +1,7 @@
 import { useState } from "react";
 
-import FormGroup from '@material-ui/core/FormGroup';
-import Checkbox from '@material-ui/core/Checkbox';
+import {FormGroup, Checkbox, Button, IconButton, TextField, Box} from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Box from '@material-ui/core/Box';
-
 
 function DynamicCheckBoxGroup(props){
     const [ boxDetails, setboxDetails ] = useState(['']);

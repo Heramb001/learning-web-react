@@ -1,7 +1,6 @@
 import React from "react";
 import { Controller } from "react-hook-form";
-import { FormControl, FormLabel, FormControlLabel, RadioGroup, Radio } from "@material-ui/core";
-import { Card } from "@material-ui/core";
+import { FormControl, FormLabel, FormControlLabel, RadioGroup, Card, Radio } from "@material-ui/core";
 
 const MuiRadioGroup = (props) => {
   const { label, options, onChange } = props;

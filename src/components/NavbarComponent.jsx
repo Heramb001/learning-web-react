@@ -1,22 +1,32 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
+import {IconButton, Collapse, Drawer, List, Divider, ListItem, ListItemText} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import Collapse from '@material-ui/core/Collapse';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+import { indigo } from '@material-ui/core/colors';
 import { Link } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
+    navLink:{ textDecoration: 'none' },
+    paper:{
+      color: "#fff",
+      backgroundColor: indigo[400],
+    },
     list: {
       width: 250,
-      backgroundColor: theme.palette.background.paper,
+      color: "#fff",
+      backgroundColor: indigo[400],
+      // '>&:link': {
+      //   color: "#fff",
+      // },
+    },
+    listItem:{
+      color:"#fff",
+      '&:hover': {
+        backgroundColor: indigo[600],
+      },
     },
     fullList: {
       width: 'auto',
@@ -50,17 +60,19 @@ const NavbarComponent = (props) => {
           onKeyDown={toggleDrawer(false)}
         >
           <List>
-            <Link to="/"><ListItem button><ListItemText primary="Home"/></ListItem></Link>
+            <Link to="/" className={classes.navLink}><ListItem button className={classes.listItem}><ListItemText primary="Home"/></ListItem></Link>
             <Divider />
-            <Link to="/dynamic-form"><ListItem button><ListItemText primary="Dynamic Form"/></ListItem></Link>
-            <Link to="/saved-form"><ListItem button><ListItemText primary="Saved Form"/></ListItem></Link>
-            <ListItem button onClick={handleClick}> 
+            <Link to="/dynamic-form" className={classes.navLink}><ListItem button className={classes.listItem}><ListItemText primary="Dynamic Form"/></ListItem></Link>
+            <Divider />
+            <Link to="/saved-form" className={classes.navLink}><ListItem button className={classes.listItem}><ListItemText primary="Saved Form"/></ListItem></Link>
+            <Divider />
+            <ListItem button onClick={handleClick} className={classes.listItem}> 
                 <ListItemText primary="BPM Editors" />
                 {open ? <ExpandLess /> : <ExpandMore />}
             </ListItem>
             <Collapse in={open} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                    <Link to="/editors/dmn"><ListItem button className={classes.nested}><ListItemText primary="DMN Editor"/></ListItem></Link>
+                    <Link to="/editors/dmn" className={classes.navLink}><ListItem button className={classes.listItem}><ListItemText primary="DMN Editor" style={{paddingLeft: "10%"}}/></ListItem></Link>
                     {/* <Link to="/editors/bpmn"><ListItem button><ListItemText primary="BPMN Editor"/></ListItem></Link> */}
                 </List>
             </Collapse>
@@ -75,7 +87,7 @@ const NavbarComponent = (props) => {
           <IconButton edge="start" className={props.classes.menuButton} color="inherit" aria-label="menu" onClick={toggleDrawer(true)}>
                 <MenuIcon />
             </IconButton>
-          <Drawer open={state} onClose={toggleDrawer(false)}>
+          <Drawer open={state} onClose={toggleDrawer(false)} classes={{ paper: classes.paper }}>
             {list()}
           </Drawer>
         </React.Fragment>

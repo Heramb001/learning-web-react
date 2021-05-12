@@ -1,15 +1,11 @@
 import React, {useRef, useEffect, useState} from 'react';
 
 import { fade, makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import InputBase from '@material-ui/core/InputBase';
+import { AppBar, Toolbar, Button, InputBase } from '@material-ui/core';
 
 import UndoButton from "../buttons/UndoButton";
 import RedoButton from "../buttons/RedoButton";
 import DownloadButton from "../buttons/DownloadButton";
-
 import NavbarComponent from '../../NavbarComponent';
 
 import * as DmnEditor from "@kogito-tooling/kie-editors-standalone/dist/dmn";

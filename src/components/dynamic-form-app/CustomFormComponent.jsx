@@ -1,8 +1,6 @@
 import React from 'react';
 
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
+import {FormControl, InputLabel, OutlinedInput} from '@material-ui/core';
 
 import DynamicCheckBoxGroup from './formFields/CheckGroupComponent';
 import DynamicRadioGroup from './formFields/RadioGroupComponent';

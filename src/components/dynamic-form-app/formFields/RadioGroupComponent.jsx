@@ -1,13 +1,7 @@
 import { useState } from "react";
 
-import RadioGroup from '@material-ui/core/RadioGroup';
-import Radio from '@material-ui/core/Radio';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import IconButton from '@material-ui/core/IconButton';
+import {FormControlLabel, RadioGroup, Radio, Button, TextField, IconButton, Box} from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Box from '@material-ui/core/Box';
 
 
 function DynamicRadioGroup(props){
